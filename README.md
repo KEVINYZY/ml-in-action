@@ -1,7 +1,16 @@
-# CVPython
-基于Python的计算机视觉学习——《python计算机视觉》随书实践
 
-## 书籍推荐
+## 机器学习
+
+#### 《机器学习实战》
+![](https://github.com/xinghalo/CVPython/blob/master/resource/markdown/Jietu20180612-181056.jpg?raw=true)
+
+#### 《数据科学入门》
+![](https://github.com/xinghalo/CVPython/blob/master/resource/markdown/Jietu20180612-181020.jpg?raw=true)
+
+## 自然语言处理
+
+
+## 计算机视觉
 
 过年期间打算读这两本书：
 #### 《数字图像处理》- russ
