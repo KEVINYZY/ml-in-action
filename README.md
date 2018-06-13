@@ -1,3 +1,13 @@
+# 学习资料
+
+- [scikit-learn 官方文档](http://scikit-learn.org/stable/index.html)
+- [scikit-learn 特征处理方法](http://scikit-learn.org/stable/modules/preprocessing.html#preprocessing)
+- [numpy 官方文档 quickstart tutorial](https://docs.scipy.org/doc/numpy/user/quickstart.html)
+- [python3教程——runoob.com](http://www.runoob.com/python3/python3-tutorial.html)
+- [python3教程——廖雪峰](https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000)
+
+# 书籍参考
+
 
 ## 机器学习
 
@@ -9,10 +19,14 @@
 
 ## 自然语言处理
 
+#### 《Python自然语言处理》
+![](https://github.com/xinghalo/CVPython/blob/master/resource/markdown/Jietu20180613-124935.jpg?raw=true)
+
+#### 《数学之美》
+![](https://github.com/xinghalo/CVPython/blob/master/resource/markdown/Jietu20180613-124956.jpg?raw=true)
 
 ## 计算机视觉
 
-过年期间打算读这两本书：
 #### 《数字图像处理》- russ
 ![](https://github.com/xinghalo/CVPython/blob/master/resource/markdown/Jietu20180209-104855.jpg?raw=true)
 
@@ -21,27 +35,6 @@
 
 #### 《OpenCV3计算机视觉 python语言实现》
 ![](https://github.com/xinghalo/CVPython/blob/master/resource/markdown/Jietu20180211-143857.jpg?raw=true)
-
-## 阅读书籍-《OpenCV3计算机视觉 python语言实现》
-
-> opencv, open source computer vision library，跨平台计算机视觉库，提供Python等语言的接口。
-
-主要可以学习core、imgproc、gpu等模块。
-
-处理步骤可以参考：
-
-- 图像获取：加载
-- 操作处理：加减、通道分离合并、阈值化、滤波、直方图分析、傅里叶变换、形态学处理、图像金字塔、边缘检测、霍夫变换、轮廓分析、图像变换匹配
-- 信息提取：轮廓提取、直方图分布、频域信息、人脸识别
-- 结果输出：输出显示
-
-
-笔记可以跳转到：
-[《OpenCV3计算机视觉》读书笔记](https://github.com/xinghalo/CVPython/tree/master/book-opencv)
-
-## 例子-手写体识别
-
-- [极客乐园教程](http://wiki.jikexueyuan.com/project/tensorflow-zh/tutorials/mnist_beginners.html)
 
 ### 参考
 
