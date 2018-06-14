@@ -1,4 +1,3 @@
-__author__ = 'xingoo'
 import json
 import numpy as np
 import pandas as pd
@@ -7,6 +6,8 @@ from sklearn.preprocessing import OneHotEncoder
 from sklearn import linear_model
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
+from sklearn.tree import DecisionTreeClassifier
+import matplotlib.pyplot as plt
 
 def value_preprocess(arr, index1, index2):
     """
@@ -87,30 +88,38 @@ def load_data(path):
 
     return train_test_split(union[:][np.arange(0,5145)], union[:][5145], test_size=0.3, random_state=0, shuffle=True)
 
-def logistic_regression(x_train, x_test, y_train, y_test):
-    """
-    模型训练与预测
 
-    :param x_train:
-    :param x_test:
-    :param y_train:
-    :param y_test:
-    :return:
-    """
+def decision_tree(X_train,X_test,y_train,y_test):
+    # criterions = ['gini', 'entropy']
+    # for criterion in criterions:
+    #     clf = DecisionTreeClassifier(criterion=criterion)
+    #     clf.fit(X_train, y_train)
+    #     print(criterion, "Training score:%f" % (clf.score(X_train, y_train)))
+    #     print(criterion, "Testing score:%f" % (clf.score(X_test, y_test)))
 
-    # 选择算法
-    logistic = LogisticRegression()
+    maxdepth = 40
 
-    # 训练模型
-    logistic.fit(x_train, y_train)
+    depths = np.arange(1, maxdepth)
+    training_scores = []
+    testing_scores = []
+    for depth in depths:
+        clf = DecisionTreeClassifier(max_depth=depth)
+        clf.fit(X_train, y_train)
+        training_scores.append(clf.score(X_train, y_train))
+        testing_scores.append(clf.score(X_test, y_test))
 
-    print("Coefficients:%s, intercept %s" % (logistic.coef_, logistic.intercept_))
-    print("Residual sum of squares: %.2f" % np.mean((logistic.predict(x_test) - y_test) ** 2))
-    print('Score: %.2f' % logistic.score(x_test, y_test))
-
-    print(np.hstack((np.reshape(logistic.predict(x_test),[len(y_test),-1]),np.reshape(y_test, [len(y_test),-1]))))
+    ## 绘图
+    fig = plt.figure()
+    ax = fig.add_subplot(1, 1, 1)
+    ax.plot(depths, training_scores, label="traing score", marker='o')
+    ax.plot(depths, testing_scores, label="testing score", marker='*')
+    ax.set_xlabel("maxdepth")
+    ax.set_ylabel("score")
+    ax.set_title("Decision Tree Classification")
+    ax.legend(framealpha=0.5, loc='best')
+    plt.show()
 
 
 if __name__=='__main__':
     x_train, x_test, y_train, y_test = load_data("data.tg")
-    logistic_regression(x_train, x_test, y_train, y_test)
+    decision_tree(x_train, x_test, y_train, y_test)

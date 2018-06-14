@@ -6,8 +6,14 @@ from sklearn.preprocessing import LabelEncoder
 from sklearn.preprocessing import OneHotEncoder
 from sklearn import linear_model
 from sklearn.model_selection import train_test_split
+from sklearn.pipeline import Pipeline
 from sklearn.linear_model import LogisticRegression
+from sklearn.decomposition import PCA
+from sklearn.model_selection import GridSearchCV
 
+"""
+特征降维
+"""
 def value_preprocess(arr, index1, index2):
     """
     通过合并两列生成统一的onehot
@@ -85,32 +91,36 @@ def load_data(path):
     # print(union[:][np.arange(0,5145)])
     # print(union[:][5145])
 
-    return train_test_split(union[:][np.arange(0,5145)], union[:][5145], test_size=0.3, random_state=0, shuffle=True)
+    return union[:][np.arange(0,5145)], union[:][5145]
 
-def logistic_regression(x_train, x_test, y_train, y_test):
+def logistic_regression(x_train, y_train):
     """
     模型训练与预测
 
     :param x_train:
-    :param x_test:
     :param y_train:
-    :param y_test:
     :return:
     """
 
     # 选择算法
     logistic = LogisticRegression()
+    pca = PCA()
+    pipe = Pipeline(steps=[('pca', pca), ('logistic', logistic)])
+
+    pca.fit(x_train)
+
+    n_components = [20, 40, 64]
+    Cs = np.logspace(-4, 4, 3)
 
     # 训练模型
-    logistic.fit(x_train, y_train)
+    estimator = GridSearchCV(pipe,
+                             dict(pca__n_components=n_components,
+                                  logistic__C=Cs))
+    estimator.fit(x_train, y_train)
 
-    print("Coefficients:%s, intercept %s" % (logistic.coef_, logistic.intercept_))
-    print("Residual sum of squares: %.2f" % np.mean((logistic.predict(x_test) - y_test) ** 2))
-    print('Score: %.2f' % logistic.score(x_test, y_test))
-
-    print(np.hstack((np.reshape(logistic.predict(x_test),[len(y_test),-1]),np.reshape(y_test, [len(y_test),-1]))))
+    print(estimator.best_score_)
 
 
 if __name__=='__main__':
-    x_train, x_test, y_train, y_test = load_data("data.tg")
-    logistic_regression(x_train, x_test, y_train, y_test)
+    x, y = load_data("data.tg")
+    logistic_regression(x, y)

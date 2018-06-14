@@ -8,6 +8,10 @@ from sklearn import linear_model
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 
+"""
+多使用两个特征，在0.64左右
+"""
+
 def value_preprocess(arr, index1, index2):
     """
     通过合并两列生成统一的onehot
@@ -69,23 +73,32 @@ def load_data(path):
     brand_labels = brand_label_encoder.transform(np.reshape(origin[:,0], [len(origin),-1]))
     brand_onehots = brand_onehot_encoder.transform(np.reshape(brand_labels, [len(brand_labels), -1]))
 
+    brand_labels2 = brand_label_encoder.transform(np.reshape(origin[:, 1], [len(origin), -1]))
+    brand_onehots2 = brand_onehot_encoder.transform(np.reshape(brand_labels2, [len(brand_labels2), -1]))
+
     # 得到分类特征的训练器
     category_label_encoder, category_onehot_encoder = value_preprocess(origin, 2, 3)
 
     category_labels = category_label_encoder.transform(np.reshape(origin[:,2], [len(origin),-1]))
     category_onehots = category_onehot_encoder.transform(np.reshape(category_labels, [len(category_labels), -1]))
 
-    data = np.hstack((brand_onehots.toarray(), category_onehots.toarray(), np.reshape(origin[:,5],[len(origin),-1])))
+    category_labels2 = category_label_encoder.transform(np.reshape(origin[:, 3], [len(origin), -1]))
+    category_onehots2 = category_onehot_encoder.transform(np.reshape(category_labels2, [len(category_labels2), -1]))
+
+    data = np.hstack((
+        brand_onehots.toarray(),
+        brand_onehots2.toarray(),
+        category_onehots.toarray(),
+        category_onehots2.toarray(),
+        np.reshape(origin[:,5],[len(origin),-1])
+    ))
 
     # 平衡样本数据
     df = pd.DataFrame(data)
-    sample = df[df[5145]==2].sample(frac=8064/55031, replace=False)
-    union = pd.concat([df[df[5145]==1], sample])
+    sample = df[df[10290]==2].sample(frac=8064/55031, replace=False)
+    union = pd.concat([df[df[10290]==1], sample])
 
-    # print(union[:][np.arange(0,5145)])
-    # print(union[:][5145])
-
-    return train_test_split(union[:][np.arange(0,5145)], union[:][5145], test_size=0.3, random_state=0, shuffle=True)
+    return train_test_split(union[:][np.arange(0,10290)], union[:][10290], test_size=0.3, random_state=0, shuffle=True)
 
 def logistic_regression(x_train, x_test, y_train, y_test):
     """
