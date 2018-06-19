@@ -43,6 +43,10 @@
 8. 面对业务良好的培训文档
 9. 自动训练程序
 10. Attention机制，Residual RNN机制，Dropout机制
+11. 实体词管理，系统词典、自定义词典，词典名字、词条、同义词管理等
+12. 意图识别可以考虑优先级，实体词抽取，提示话术，默认值
+13. Slotfilling 必须词条
+14. 为方便操作可以添加快捷键，快捷回复。可以多参考ruyi.ai
 
 关键技术与名词：
 
@@ -51,11 +55,14 @@
 3. 聊天机器人(chatbot)
 4. 人工智能标记语言(AIML)
 5. 深度学习聊天机器人(Sequence to Sequence)
+6. 任务驱动式多轮对话(Spoken Dialogue System, SDS)
 
 论文
 A Non-Task-Oriented Mixture Model Dialog System
 Daniel G. Bobrow, GUS, A Frame-Driven Dialog System, 1977
 
+- [科大讯飞](http://www.aidaxue.com/)
+- [百度度秘](https://www.leiphone.com/news/201709/RH5bLiHe35RwjC2j.html)
 - [阿里小蜜介绍，效果可以去APP端自行体验](https://mp.weixin.qq.com/s/hTC62L1GFwsyC_EEdgNFXw?spm=a2c4e.11153940.blogcont108611.11.35f95fe6NoYkUc)
 - [自己做聊天机器人](http://www.shareditor.com/blogshow?blogId=63)
 - [conversational robot desing —— qhduan](https://github.com/qhduan/ConversationalRobotDesign)
