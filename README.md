@@ -93,10 +93,10 @@ Daniel G. Bobrow, GUS, A Frame-Driven Dialog System, 1977
 
 ## 书籍参考
 
--《机器学习实战》
--《数据科学入门》
--《Python自然语言处理》
--《数学之美》
--《数字图像处理》- russ
--《python计算机视觉》
--《OpenCV3计算机视觉 python语言实现》
+- 《机器学习实战》
+- 《数据科学入门》
+- 《Python自然语言处理》
+- 《数学之美》
+- 《数字图像处理》- russ
+- 《python计算机视觉》
+- 《OpenCV3计算机视觉 python语言实现》
