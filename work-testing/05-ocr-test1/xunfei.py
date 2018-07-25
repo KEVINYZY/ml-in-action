@@ -110,10 +110,10 @@ def main():
     #img = cv2.imread("161531900793_.pic.jpg", -1)
     #img = cv2.imread("171531900794_.pic.jpg", -1)
     #img = cv2.imread("181531900795_.pic.jpg", -1)
-    #img = cv2.imread("191531901915_.pic.jpg", -1)
+    img = cv2.imread("191531901915_.pic.jpg", -1)
     #img = cv2.imread("201531901916_.pic.jpg", -1)
     #img = cv2.imread("211531901916_.pic.jpg", -1)
-    img = cv2.imread("221531901917_.pic.jpg", -1)
+    #img = cv2.imread("221531901917_.pic.jpg", -1)
 
     height, width = img.shape[:2]
     #size = (int(width * 0.5), int(height * 0.5))
