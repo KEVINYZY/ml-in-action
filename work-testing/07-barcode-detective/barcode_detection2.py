@@ -68,6 +68,7 @@ def main():
     cv2.imshow("Image", image)
     cv2.waitKey(0)
     cv2.imwrite("result2.png", image)
+    cv2.waitKey(0)
 
 if __name__ == '__main__':
     main()
