@@ -18,7 +18,7 @@ dict = {}
 
 def main():
     # 图片加载
-    f = open("名片.jpg", 'rb')
+    f = open("shrink.png", 'rb')
     file_content = f.read()
     body = parse.urlencode({'image': base64.b64encode(file_content)})
 
@@ -37,7 +37,7 @@ def main():
 
     body = json.loads(result, encoding='utf-8')
 
-    img = cv2.imread('名片.jpg')
+    img = cv2.imread('shrink.png')
     for text_line in body['data']['block'][0]['line']:
         word = text_line['word'][0]
         x1 = word['location']['top_left']['x']
@@ -55,8 +55,7 @@ def main():
         text = word['content']
         print(text)
 
-    cv2.imshow('result', img)
-    cv2.waitKey(0)
+    cv2.imwrite('result.png',img)
 
 if __name__ == '__main__':
     main()
