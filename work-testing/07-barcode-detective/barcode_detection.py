@@ -7,7 +7,7 @@ def main():
     # load the image and convert it to grayscale
     # 加载图像，并且转成灰度图像
     # 彩色图片大部分是RGB的，在做图像处理时，需要转换成灰度图、二值图、HSV、HSI等格式
-    image = cv2.imread("1.jpg")
+    image = cv2.imread("/Users/xingoo/PycharmProjects/ml-in-action/work-testing/11-imagerotate/9.jpg")
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     cv2.imshow("灰度图", gray)
     cv2.waitKey(0)
