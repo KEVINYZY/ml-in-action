@@ -85,6 +85,14 @@ Daniel G. Bobrow, GUS, A Frame-Driven Dialog System, 1977
 
 #### 计算机视觉篇
 
+目前主要在做OCR识别方向，一般的学习和使用流程为：
+
+- 调用大厂免费的接口体验下（贵，没其他的缺点）
+- 使用tesseract开源框架体验下（效果差，除了开源没啥优点）
+- 使用opencv提供的scene text detection
+- 使用机器学习实现
+- 使用深度学习实现，推荐chinese_ocr工程，学习下ctpn+cnn ctc
+
 - [图片资源库](http://blog.csdn.net/chaipp0607/article/details/71403797)
 - [opencv学习网址](http://www.opencv.org.cn/opencvdoc/2.3.2/html/doc/tutorials/tutorials.html)
 - [yolo github]()
