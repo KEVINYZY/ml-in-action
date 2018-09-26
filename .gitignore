@@ -9,3 +9,5 @@
 *.hdf5
 
 logs/*
+
+*.caffemodel
