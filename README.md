@@ -93,6 +93,8 @@ Daniel G. Bobrow, GUS, A Frame-Driven Dialog System, 1977
 - 使用机器学习实现
 - 使用深度学习实现，推荐chinese_ocr工程，学习下ctpn+cnn ctc
 
+参考链接：
+
 - [图片资源库](http://blog.csdn.net/chaipp0607/article/details/71403797)
 - [opencv学习网址](http://www.opencv.org.cn/opencvdoc/2.3.2/html/doc/tutorials/tutorials.html)
 - [yolo github]()
